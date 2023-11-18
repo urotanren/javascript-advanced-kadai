@@ -104,8 +104,10 @@ const gameOver = id => {
 
     clearInterval(id);
 
+    
     // console.log('ゲーム終了!');
     const result = confirm(rankCheak(score));
+
 
     // OKボタンをクリックされたらリロードする
     if(result == true){
@@ -124,14 +126,20 @@ const timer = () => {
         time--;
         count.textContent = time;
         console.log(time);
-
+    
         // カウントが０になったらタイマーを停止する
         if(time <= 0){
+           
+        
             // clearInterval(id);
-            gameOver(id);
+            setTimeout(() => {
+                gameOver(id);
+            },10);
+            
 
         }
-    },1010);
+    
+    },1000);
    
 };
 
@@ -144,7 +152,7 @@ const timer = () => {
 start.addEventListener('click', () =>{
 
     setTimeout(() => {
-        // console.log('タイムアップ');
+        console.log('タイムアップ');
         wrap.textContent = 'タイムアップ！';
     },60000);
 
